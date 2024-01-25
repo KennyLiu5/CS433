@@ -1,7 +1,8 @@
+
 /**
 * Assignment 5: Page replacement algorithms
  * @file pagetable.h
- * @author ??? (TODO: your name)
+ * @author NAME
  * @brief This class represents a traditional pagetable data structure.
  * @version 0.1
  */
@@ -10,7 +11,6 @@
 
 #pragma once
 
-// Remember to add comments to your code
 #include <vector>
 using namespace std;
 
@@ -28,8 +28,8 @@ public:
 	int frame_num;
 	// valid bit represents whether a page is in the physical memory
 	bool valid = false;
-    // dirty bit represents whether a page is changed
-    bool dirty = false;
+  // dirty bit represents whether a page is changed
+  bool dirty = false;
 };
 
 
@@ -48,8 +48,12 @@ public:
     // Destructor
     ~PageTable();
 
-	// TODO: Add your implementation of the page table here
-
+/*
+    PageTable getPageEntry(int page)
+    {
+      return pages[page];
+    }
+*/
     /**
      * @brief Access a page in the page table.
      * @param i
