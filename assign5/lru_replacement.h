@@ -1,7 +1,7 @@
 /**
 * Assignment 5: Page replacement algorithms
  * @file lru_replacement.h
- * @author ??? (TODO: your name)
+ * @author NAME
  * @brief A class implementing the LRU page replacement algorithms
  * @version 0.1
  */
@@ -10,16 +10,20 @@
 
 #pragma once
 
-// Remember to add comments to your code
 
 #include "replacement.h"
-
+//#include <vector>
+#include <unordered_map>
+#include <list>
 /**
  * @brief A class to simulate the least recently used (LRU) page replacement algorithm.
  */
 class LRUReplacement : public Replacement
 {
-	// TODO: Add your implementation to this class
+  
+  //vector<int> q;
+  list<int> l;
+  unordered_map<int, list<int>::iterator> u;
 public:
 	/**
 	 * @brief Constructor
