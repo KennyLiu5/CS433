@@ -1,7 +1,7 @@
 /**
 * Assignment 5: Page replacement algorithms
  * @file replacement.h
- * @author ??? (TODO: your name)
+ * @author NAME
  * @brief A base class for different page replacement algorithms.
  * @version 0.1
  */
@@ -10,7 +10,7 @@
 #pragma once
 
 #include "pagetable.h"
-
+#include <iostream>
 
 /**
  * @brief A base class to simulate page replacement algorithms.
@@ -21,8 +21,15 @@ class Replacement
 protected:      // subclasses can access these members
     // Member variable for the page table
     PageTable page_table;
-	// TODO: Add additional member variables to this class
-	
+
+	  int references; // number of references
+    int page_faults; // number of page faults
+    int page_replacement; // number of page_replacements
+    int frame_count; // counter for frames so it doesn't exceed total
+
+    int total_pages; // total number of pages in page table
+    int total_frames; // total number of frames in page table
+
 public:
 	/**
 	 * @brief 
@@ -36,7 +43,7 @@ public:
      */
     virtual ~Replacement();
 
-	// TODO: Add additional member variables and functions if needed
+
     /**
 	 * @brief Simulate a single page access.
      * @details If the page is valid, it calls the touch_page function. 
@@ -53,7 +60,10 @@ public:
 	 * It may be overridden in a subclass 
 	 * @param page_num The logical page number.
      */
-    virtual void touch_page(int page_num) {}
+    virtual void touch_page(int page_num) 
+    {
+      return; // doesn't do anything, no replacement is needed
+    }
 
     /**
      * @brief Access an invalid page, but free frames are available.
@@ -61,7 +71,14 @@ public:
      * It may be overridden in a subclass 
      * @param page_num The logical page number.
      */
-    virtual void load_page(int page_num) {}
+    virtual void load_page(int page_num)
+    {
+      page_table[page_num].valid = true; 
+      page_table[page_num].frame_num = frame_count;
+      page_faults++; // invalid page, so it is a page fault
+      frame_count++; // adding new page, so increment frame count
+      //cout << "added " << frame_count << " to index " << page_num << endl;
+    }
 
 
     /**
