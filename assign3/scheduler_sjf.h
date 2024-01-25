@@ -1,7 +1,7 @@
 /**
 * Assignment 3: CPU Scheduler
  * @file scheduler_fcfs.h
- * @author ??? (TODO: your name)
+ * @author NAME
  * @brief This Scheduler class implements the SJF scheduling algorithm.
  * @version 0.1
  */
@@ -12,12 +12,20 @@
 #define ASSIGN3_SCHEDULER_SJF_H
 
 #include "scheduler.h"
+#include <vector>
+#include <queue>
+#include <algorithm>
 
 class SchedulerSJF : public Scheduler {
-private:
+  private:
     // TODO: add necessary member variables here for your implementation
+    queue<PCB> Q; // queue of PCBs 
+    vector<PCB> done; // PCBs done in queue, mainly to display
+    int count; // to count how many processes there are
+    double total_turnaround; // sum of turnaround times for all processes
+    double total_wait; // sum of waiting times for all processes
 
-public:
+  public:
     /**
      * @brief Construct a new SchedulerSJF object
      */
@@ -37,7 +45,7 @@ public:
      *        It is used to print out the results of the simulation.
      */
     void print_results() override;
-
+  
     /**
      * @brief This function simulates the scheduling of processes in the ready queue.
      *        It stops when all processes are finished.
