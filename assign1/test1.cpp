@@ -1,7 +1,7 @@
 /**
  * Assignment 1: priority queue of processes
  * @file test1.cpp
- * @author
+ * @author NAME
  * @brief This file tests the correctness of your implementation of the readyqueue and pcbtable
  * //You must complete the all parts marked as "TODO". Delete "TODO" after you are done.
  * // Remember to add sufficient comments to your code
@@ -37,6 +37,7 @@ int main(int argc, char* argv[]) {
     q1.displayAll();
 
     std::cout << "remove the process with the highest priority from q1 and display q1." << std::endl;
+
     PCB* p = q1.removePCB();
     q1.displayAll();
 
@@ -47,7 +48,9 @@ int main(int argc, char* argv[]) {
     q1.addPCB(table.getPCB(5));
     q1.displayAll();
     std::cout << "remove the process with the highest priority from q1 and display q1." << std::endl;
+
     p = q1.removePCB();
+
     q1.displayAll();
     
     std::cout << "Insert processes 47, 17, 39, 12 and 19  to q1and display q1." << std::endl;
