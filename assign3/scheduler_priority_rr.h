@@ -1,7 +1,7 @@
 /**
 * Assignment 3: CPU Scheduler
  * @file scheduler_priority_rr.h
- * @author ??? (TODO: your name)
+ * @author NAME
  * @brief This Scheduler class implements the Priority RR scheduling algorithm.
  * @version 0.1
  */
@@ -12,10 +12,21 @@
 #define ASSIGN3_SCHEDULER_PRIORITY_RR_H
 
 #include "scheduler.h"
+#include <queue>
+#include <algorithm>
 
 class SchedulerPriorityRR : public Scheduler {
 private:
     // TODO: add necessary member variables here for your implementation
+    //vector<PCB> Q; // for the ready queue
+    vector<PCB> copy; // mostly to save original burst time
+    vector<PCB> plist; // copy of process list
+    vector<PCB> final; // to display
+
+    int count; // to count how many processes there are
+    double total_turnaround; // sum of turnaround times for all processes
+    double total_wait; // sum of waiting times for all processes
+    int quantum; // to store time quantum
 
 public:
     /**
