@@ -1,7 +1,8 @@
+
 /**
 * Assignment 4: Producer Consumer Problem
  * @file buffer.h
- * @author ??? (TODO: your name)
+ * @author NAME
  * @brief header file for the buffer class
  * @version 0.1
  */
@@ -11,13 +12,18 @@
 
 // Define the data type of the buffer items
 typedef int buffer_item;
-
+//#define BUFFER_SIZE 5 <-- shown on zybook, but not given (used to test and was remodified)
 /**
  * @brief The bounded buffer class. The number of items in the buffer cannot exceed the size of the buffer.
  */
+
 class Buffer {
 private:
-    // TODO: Add your implementation of the buffer class here
+    buffer_item buffer[5/*BUFFER_SIZE*/]; // the buffer, has size of 5
+    int count; // to count how many elements there are in the buffer 
+    int front; // where the front is
+    int rear; // where the rear is
+    int length; // size of the buffer
 
 public:
     /**
