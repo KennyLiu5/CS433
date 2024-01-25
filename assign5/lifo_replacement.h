@@ -1,7 +1,8 @@
+
 /**
 * Assignment 5: Page replacement algorithms
  * @file lifo_replacement.h
- * @author ??? (TODO: your name)
+ * @author NAME
  * @brief A class implementing the LIFO page replacement algorithms
  * @version 0.1
  */
@@ -10,16 +11,16 @@
 
 #pragma once
 
-// Remember to add comments to your code
 
 #include "replacement.h"
+#include <vector>
 
 /**
  * @brief A class to simulate LIFO (last in first out) page replacement algorithm.
  */
 class LIFOReplacement : public Replacement {
 private:
-    // TODO: Add necessary member variables to this class
+  vector<int> q; // keep track of the numbers in vector for lifo
 
 public:
     /**
