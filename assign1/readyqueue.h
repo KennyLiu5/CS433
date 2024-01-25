@@ -1,7 +1,7 @@
 /**
  * Assignment 1: priority queue of processes
  * @file readyqueue.h
- * @author ??? (TODO: your name)
+ * @author NAME
  * @brief ReadyQueue is a queue of PCB's that are in the READY state to be scheduled to run.
  * It should be a priority queue such that the process with the highest priority can be selected next.
  * @version 0.1
@@ -18,9 +18,17 @@
  */
 class ReadyQueue {
 private:
-    // TODO: add your private member variables here
-    // choose a data structure for the ReadyQueue. No STL class is allowed.
 
+    // choose a data structure for the ReadyQueue. No STL class is allowed.
+    PCB** heap;// array of pcb in the binary heap 
+    /*Note: the compiler says that I need to do PCB** and not PCB* alone and it works.*/
+    int capacity; //maximum capacity of the priority queue
+    int size1;//current size of the element in the the queue
+    //PCB** is a pointer that points to another pointer. And this one point to the beginning of the array.
+    //was getting error code in readyqueue.cpp in line 17 stating that i need **.
+
+
+//cout <<here
 public:
     /**
      * @brief Construct a new ReadyQueue object
@@ -28,6 +36,9 @@ public:
      */
     ReadyQueue();
 
+    ReadyQueue(const ReadyQueue& object);//copy constructor
+    ReadyQueue& operator =(const ReadyQueue& object);//copy constructor but be able to use = operator
+    void swap(PCB* &heap1, PCB* &heap2);//swap the two PCB heap units and swap them
     /**
      * @brief Destructor
      */
@@ -49,6 +60,9 @@ public:
      */
 	PCB* removePCB();
 
+    void percolateUp(int index);//used to help sort our heap making high values priority go to the top
+    void percolateDown(int index);//used to help sort our heap making low values priority go to the bottom
+    
     /**
      * @brief Returns the number of elements in the queue.
      *
