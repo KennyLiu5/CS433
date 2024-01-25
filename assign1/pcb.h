@@ -1,7 +1,7 @@
 /**
  * Assignment 1: priority queue of processes
  * @file pcb.h
- * @author ??? (TODO: your name)
+ * @author NAME
  * @brief This is the header file for the PCB class, a process control block.
  * @version 0.1
  */
@@ -82,7 +82,7 @@ public:
      * @param state
      */
     void setState(ProcState state) {
-        // TODO: add your code here
+        this->state = state;
     }
 
     /**
@@ -90,7 +90,11 @@ public:
      * @param priority
      */
     void setPriority(unsigned int priority) {
-        // TODO: add your code here
+        if(priority >= 1 && priority <=50){//check if range is valid between 1-50
+            this->priority = priority;//then set this priority with the new priority
+        }else{//if not then an invalid range from the given priority. 
+            cout << "Priority out of range.\n";
+        }
     }
 
     /**
