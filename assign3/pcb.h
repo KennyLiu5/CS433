@@ -1,7 +1,7 @@
 **
  * Assignment 1: priority queue of processes
  * @file pcb.h
- * @author Jesus Mendoza and Kenny Liu (TODO: your name)
+ * @author Katie Trinh and Cherishma Jalaparti (TODO: your name)
  * @brief This is the header file for the PCB class, a process control block.
  * @version 0.1
  */
