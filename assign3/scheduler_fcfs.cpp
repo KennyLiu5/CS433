@@ -2,7 +2,7 @@
 /**
 * Assignment 3: CPU Scheduler
  * @file scheduler_fcfs.cpp
- * @author NAME
+ * @author Katie Trinh and Cherishma Jalaparti
  * @brief This Scheduler class implements the FCSF scheduling algorithm.
  * @version 0.1
  */
